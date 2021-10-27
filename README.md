@@ -10,8 +10,8 @@ Results
 * In 2017, the only stock to not return a positive result is TERP with a -7.2% drop. Meanwhile, the highest returning return is DQ with a 199.4% return. In 2018, the only stocks with positive returns were ENPH and RUN with 81.9% and 84% returns respectively; meanwhile, the biggest drop was DQ with a -62.6%.
 * With a refactored code, compiling the data took 0.1445313 and 0.1523438 seconds for 2017 and 2018 respectively; meanwhile, using the unrefactored code took 0.59375 and 0.6909375 seconds for 2017 and 2018 respectively.    
 
-![GitHub Logo](/VBA_Challenge_2017.png)
-![GitHub Logo](/VBA_Challenge_2018.png)
+![VBA_Challenge_2017.png]
+![VBA_Challenge_2018.png]
 
 
 Summary
