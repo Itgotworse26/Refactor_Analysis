@@ -27,6 +27,7 @@ Summary
 * The biggest advantage of using the unrefactored code is that it doesn't have as many variables. 
 
 ...
+
 3c) Get the number of rows to loop over
    RowCount = Cells(Rows.Count, "A").End(xlUp).Row
 
@@ -60,6 +61,7 @@ Summary
 
            End If
        Next j
+
 ...
 
 * The for loop for the unrefactored
