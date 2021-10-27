@@ -16,11 +16,11 @@ Results
 
 ![2017 Runtime w/Refactored Data](https://github.com/Itgotworse26/refactor-analysis/blob/main/resources/VBA_Challenge_2017.png)
 
-![2017 Runtime without/Refactored Data](https://github.com/Itgotworse26/refactor-analysis/blob/main/resources/VBA_Challenge_2017.png)
+![2017 Runtime without/Refactored Data](https://github.com/Itgotworse26/refactor-analysis/blob/main/resources/VBA_Challenge_2017_No-Refactor.png)
 
 ![2018 Runtime w/Refactored Data](https://github.com/Itgotworse26/refactor-analysis/blob/main/resources/VBA_Challenge_2018.png)
 
-![2018 Runtime without/Refactored Data](https://github.com/Itgotworse26/refactor-analysis/blob/main/resources/VBA_Challenge_2018.png)
+![2018 Runtime without/Refactored Data](https://github.com/Itgotworse26/refactor-analysis/blob/main/resources/VBA_Challenge_2018_No-Refactor.png)
 
 
 Summary
