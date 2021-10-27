@@ -24,7 +24,7 @@ Results
 
 
 Summary
-* The biggest advantage of using the unrefactored code is that it doesn't have as many variables. 
+* The biggest advantage of using the unrefactored code is that the for loop hard codes the cells. As seen in the code below, the cells are hard coded according to whether their index matches what the code is looking for, whether it is the total volume, starting price, or ending price. This makes it easier to track and assess what populates each cell, which makes it easier for non-coders to follow.
 
 ...
 
@@ -61,7 +61,61 @@ Summary
 
                 End If
             Next j
+...
+
+* The for loop for the refactored code on the other hand has to check the tickerIndex has the correct row. While tickerIndex is the only variable that needs to be checked and compared against the cells, it can be difficult for non-coders to track the logic, especially as how tickerIndex's value can affect the tickerVolumes, tickerStartingPrices, and tickerEndingPrices depends on how many loops it has gone through; trying to track the number of loops however is difficult without machine assistance. 
 
 ...
 
-* The for loop for the unrefactored
+    'Get the number of rows to loop over
+    RowCount = Cells(Rows.Count, "A").End(xlUp).Row
+    
+    '1a) Create a ticker Index
+    tickerIndex = 0
+
+    '1b) Create three output arrays
+    Dim tickerVolumes(12) As Long
+    Dim tickerStartingPrices(12) As Single
+    Dim tickerEndingPrices(12) As Single
+    
+    ''2a) Create a for loop to initialize the tickerVolumes to zero.
+    For i = 0 To 11
+        tickerVolumes(i) = 0
+        tickerStartingPrices(i) = 0
+        tickerEndingPrices(i) = 0
+    
+    Next i
+    
+    ''2b) Loop over all the rows in the spreadsheet.
+    For i = 2 To RowCount
+    
+        '3a) Increase volume for current ticker
+        tickerVolumes(tickerIndex) = tickerVolumes(tickerIndex) + Cells(i, 8).Value
+        
+        '3b) Check if the current row is the first row with the selected tickerIndex.
+        'If  Then
+        If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i - 1, 1).Value <> tickers(tickerIndex) Then
+            tickerStartingPrices(tickerIndex) = Cells(i, 6).Value
+        
+        End If
+        'End If
+        
+        '3c) check if the current row is the last row with the selected ticker
+         'If the next rowâ€™s ticker doesnâ€™t match, increase the tickerIndex.
+        'If  Then
+        If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
+            tickerEndingPrices(tickerIndex) = Cells(i, 6).Value
+        
+        End If
+
+            '3d Increase the tickerIndex.
+            If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers(tickerIndex) Then
+                tickerIndex = tickerIndex + 1
+            
+            End If
+            'End If
+    
+    Next i
+...
+
+* However, refactored code will run through any calculations faster than unrefactored code. In the refactored code, tickerIndex is the only variable that the for loop increases on its own, with tickerVolumes, tickerStartingPrices, and tickerEndingPrices being affected by tikerIndex. Meanwhile, the unrefactored code needs a nested for loop and needs to check every single cell. This makes it slower and eats up more memory. While the differences are negligible at this stage due to the small dataset, a larger dataset would see a dramatic gap in performances between the two different codes. 
